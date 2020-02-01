@@ -16,15 +16,18 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (enabled)
         {
-            Rigidbody instantiatedProjectile = Instantiate(projectile,
-                                                           transform.position + transform.forward,
-                                                           transform.rotation)
-                as Rigidbody;
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Rigidbody instantiatedProjectile = Instantiate(projectile,
+                                                               transform.position + transform.forward,
+                                                               transform.rotation)
+                    as Rigidbody;
 
-            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+                instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
 
+            }
         }
     }
 }
