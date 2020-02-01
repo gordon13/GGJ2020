@@ -18,7 +18,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (enabled)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire2"))
             {
                 Rigidbody instantiatedProjectile = Instantiate(projectile,
                                                                transform.position + transform.forward,
