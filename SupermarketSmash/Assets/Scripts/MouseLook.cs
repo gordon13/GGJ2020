@@ -7,10 +7,14 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
     float xRotation = 0f;
-    
+    //GameObject hand;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        //hand = new GameObject("hand");
+        //hand.AddComponent<SphereCollider>();
+        //hand.transform.parent = gameObject.transform.parent;
     }
 
     // Update is called once per frame
@@ -24,6 +28,8 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+        //hand.transform.position = transform.position + transform.forward;
 
     }
 }
