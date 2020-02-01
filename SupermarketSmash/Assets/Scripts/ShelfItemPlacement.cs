@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class ShelfItemPlacement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameMan gameManager;
+
     void Start()
     {
-        
+        gameManager = FindObjectOfType<GameMan>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void OnTriggerEnter(Collider obj)
+    {
+        if (obj.GetComponent<ShelfItem>())
+        {
+        }
+    }
+
+    private void OnTriggerExit(Collider obj)
+    {
+        if (obj.GetComponent<ShelfItem>())
+        {
+            gameManager.decrementPoints();
+        }
     }
 }

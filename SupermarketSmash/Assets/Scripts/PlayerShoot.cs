@@ -19,7 +19,7 @@ public class PlayerShoot : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             Rigidbody instantiatedProjectile = Instantiate(projectile,
-                                                           transform.position,
+                                                           transform.position + transform.forward,
                                                            transform.rotation)
                 as Rigidbody;
 

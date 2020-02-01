@@ -17,20 +17,20 @@ public class Shelf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (ShelfItemPlacement p in itemPlaces)
+       /* foreach (ShelfItemPlacement p in itemPlaces)
         {
             
-        }
+        }*/
     }
 
     public void Spawn()
     {
     
-        itemPlaces = GetComponentsInChildren<ShelfItemPlacement>();
+        /*itemPlaces = GetComponentsInChildren<ShelfItemPlacement>();
         foreach (ShelfItemPlacement p in itemPlaces)
         {
             GameObject item = Instantiate(itemPrefab, p.transform.position, p.transform.rotation);
-        }
+        }*/
         //Time.timeScale = 0;
 
     }

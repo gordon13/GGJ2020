@@ -5,13 +5,16 @@ using UnityEngine;
 public class GameMan : MonoBehaviour
 {
     public static GameMan instance = null;
+    public int totalItems;
     public int itemsOnShelves;
     public int itemsOffShelves;
-    
+    public int points;
+    public int pointsTime = 1;
+
     //private BoardManager boardScript;
     private ShelfItem[] items;
     private Shelf[] shelves;
-
+    float nextTime = 0;
 
     void Awake()
     {
@@ -30,24 +33,35 @@ public class GameMan : MonoBehaviour
     void InitGame()
     {
         shelves = FindObjectsOfType<Shelf>();
-        foreach (var shelf in shelves)
-        {
-            shelf.Spawn();
-        }
 
         items = FindObjectsOfType<ShelfItem>();
+        totalItems = items.Length;
         foreach (var item in items)
         {
             item.disturbed = false;
         }
         itemsOnShelves = items.Length;
         itemsOffShelves = 0;
+
+        //calculate initial points
+        points = itemsOnShelves * 10;
     }
 
 
     void Update()
     {
+        if (Time.time >= nextTime)
+        {
+            points -= 1;
+            nextTime += pointsTime;
+        }
+    }
 
+    public void decrementPoints()
+    {
+        itemsOnShelves -= 1;
+        itemsOffShelves += 1;
+        points -= 2 * itemsOffShelves;
     }
 }
 
