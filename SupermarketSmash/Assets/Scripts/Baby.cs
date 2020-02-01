@@ -23,7 +23,6 @@ public class Baby : MonoBehaviour
 
     void Launch(float force)
     {
-        Debug.Log("Launch!");
         _rigidbody.AddForce(new Vector3(0, force, 0));
     }
 

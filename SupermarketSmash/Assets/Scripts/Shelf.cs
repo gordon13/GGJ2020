@@ -11,12 +11,6 @@ public class Shelf : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemPlaces = GetComponentsInChildren<ShelfItemPlacement>();
-        foreach (ShelfItemPlacement p in itemPlaces)
-        {
-            GameObject item = Instantiate(itemPrefab, p.transform.position, p.transform.rotation);
-        }
-        Time.timeScale = 0;
 
     }
 
@@ -27,5 +21,17 @@ public class Shelf : MonoBehaviour
         {
             
         }
+    }
+
+    public void Spawn()
+    {
+    
+        itemPlaces = GetComponentsInChildren<ShelfItemPlacement>();
+        foreach (ShelfItemPlacement p in itemPlaces)
+        {
+            GameObject item = Instantiate(itemPrefab, p.transform.position, p.transform.rotation);
+        }
+        //Time.timeScale = 0;
+
     }
 }
