@@ -5,85 +5,71 @@ using UnityEngine;
 public class Pick_Up : MonoBehaviour
 {
 
-    public Transform hand;
-    public Transform snapper; //thing to be snapped to 
-    private bool ready = false;
+    private Transform hand;
+    private Material itemMat;
+
+    private bool onFloor = false;
     private bool selected = false;
+
+    private Color defaultColor = Color.white;
+    private Color highlightedColor = Color.red;
 
     void Start()
     {
+
         hand = GameObject.Find("hand").transform;
-        GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+        itemMat = GetComponentInChildren<MeshRenderer>().material; //Item colour 
 
     }
 
+
     void OnTriggerEnter(Collider col)
     {
-        switch (col.gameObject.name)
-        {
-            case "floor":
-                break;
-            case "hand":
-                selected = true;
-                break;
-            default:
-                //Debug.Log("Selected!!!.");//Debugging comment 
-                break;
-        }
+
+        if (col.gameObject.name == "hand" && onFloor == true) itemMat.color = highlightedColor;
+
     }
 
 
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "hand") selected = false;
+
+        if (col.gameObject.name == "hand") itemMat.color = defaultColor;
+
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+
+        if (col.gameObject.name == "floorPlane") onFloor = true;
+
+    }
+
+    void OnCollisionExit(Collision col)
+    {
+
+        if (col.gameObject.name == "floorPlane") onFloor = false;
+
     }
 
 
-
-    /*Pick up/interact with an object*/
     void OnMouseDown()
     {
+
         GetComponent<Rigidbody>().useGravity = false;
         this.transform.position = hand.position;
     }
 
     void OnMouseDrag()
     {
+
         this.transform.position = hand.position;
     }
 
-    /*Release the object, and turn on gravity. If object is released within shelf box
-	then object snaps into position. */
     void OnMouseUp()
     {
-        if (ready)
-        {
-            snapToLocale();
-        }
-        else
-        {
-            GetComponent<Rigidbody>().useGravity = true;
-            this.transform.parent = null;
-        }
+        GetComponent<Rigidbody>().useGravity = true;
+        this.transform.parent = null;
     }
-
-    void snapToLocale()
-    {
-        GetComponent<Rigidbody>().isKinematic = true;
-        this.transform.position = snapper.position;
-    }
-
-    void FixedUpdate()
-    {
-        if (selected)
-        {
-            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
-        }
-        else
-        {
-            GetComponentInChildren<MeshRenderer>().material.color = Color.white;
-        }
-    }
-
 
 }

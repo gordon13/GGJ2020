@@ -17,12 +17,16 @@ public class SceneControl : MonoBehaviour
     // the image you want to fade, assign in inspector
     public RawImage img;
 
-    public void StartGame()
+    public void StartLoading()
     {
-        Debug.Log("clicked start");
         StartCoroutine(FadeImage(false, 2f, 1));
     }
 
+    public void LoadScene()
+    {
+        StartCoroutine(FadeImage(false, 2f, 2));
+
+    }
     IEnumerator FadeImage(bool fadeAway, float time, int levelIndex)
     {
         // fade from opaque to transparent
