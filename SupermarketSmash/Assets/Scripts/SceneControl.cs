@@ -34,7 +34,7 @@ public class SceneControl : MonoBehaviour
 
     public void LoadScene()
     {
-        StartCoroutine(FadeImage(false, 2f, 2));
+        StartCoroutine(FadeImage(false, 2f, 5)); // 2 is samplescene, 5 is improvedscene
     }
 
     public void LoadGameOverScene()
