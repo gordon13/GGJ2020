@@ -92,8 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b16e5a352d4bfe4cbf0d6c3590ac0b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 0}
-  shelfCube: {fileID: 0}
 --- !u!114 &8705188084342690600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1788317346167505654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9647f1eb677eb2b438b6b25f0b61423c, type: 3}
+  m_Script: {fileID: 11500000, guid: ecda92f969859b049b9f3a638f911982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   impact: {fileID: 8300000, guid: 500de70c69490eb4daa24dd3d0016465, type: 3}
