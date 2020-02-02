@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Baby : MonoBehaviour
 {
-    private float _timer = 0f;
+    //private float _timer = 0f;
     private Rigidbody _rigidbody;
     public float force = 10000f;
     private int wait_time;
@@ -47,13 +47,16 @@ public class Baby : MonoBehaviour
         //Choose a random shelf as the target
         choice = Random.Range(0, shelves.Length);
         target = shelves[choice].gameObject;
+        /*
         //Move a bit upwards if you're on the floor, to avoid hitting the floor and throwing off the angle
         if (this.transform.position.y <= 0)
         {
             this.transform.position = this.transform.position + new Vector3(0, 1, 0);
         }
+        */
         //Apply a force in the direction of that shelf (with a random vertical component to target different levels)
-        _rigidbody.AddForce((target.transform.position - transform.position + new Vector3(0, Random.Range(1, 4), 0)) * force);
+        _rigidbody.AddForce((target.transform.position - transform.position + new Vector3(0, Random.Range(1, 4), 0)).normalized * force);
+        //Debug.Log(target.transform.position);
         //_rigidbody.AddForce(new Vector3(0, force, 0));
     }
 
