@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameMan>();
+        gameManager = GameMan.instance;
         onShelves = GameObject.Find("OnShelves/value");
         offShelves = GameObject.Find("OffShelves/value");
         points = GameObject.Find("Points/value");
@@ -21,8 +22,8 @@ public class HUD : MonoBehaviour
 
     void Update()
     {
-        onShelves.GetComponentInChildren<Text>().text = gameManager.itemsOnShelves.ToString();
-        offShelves.GetComponentInChildren<Text>().text = gameManager.itemsOffShelves.ToString();
-        points.GetComponentInChildren<Text>().text = gameManager.points.ToString();
+        onShelves.GetComponent<TextMeshProUGUI>().SetText(gameManager.itemsOnShelves.ToString());
+        offShelves.GetComponent<TextMeshProUGUI>().SetText(gameManager.itemsOffShelves.ToString());
+        points.GetComponent<TextMeshProUGUI>().SetText(gameManager.points.ToString());
     }
 }
