@@ -45,7 +45,8 @@ public class GameMan : MonoBehaviour
         itemsOffShelves = 0;
 
         //calculate initial points
-        points = itemsOnShelves * 10;
+        points = itemsOnShelves * 5;
+
     }
 
 
@@ -53,13 +54,13 @@ public class GameMan : MonoBehaviour
     {
         if (Time.time >= nextTime)
         {
-            points -= 1;
+            points -= itemsOffShelves;
             nextTime += pointsTime;
-        }
-
-        if (points <= 0)
-        {
-            SceneManager.LoadScene(3, LoadSceneMode.Single);
+            if (points <= 0)
+            {
+                Debug.Log(points + " " + itemsOffShelves + " " + itemsOnShelves + " " + totalItems);
+                SceneManager.LoadScene(3, LoadSceneMode.Single);
+            }
         }
     }
 
@@ -67,7 +68,7 @@ public class GameMan : MonoBehaviour
     {
         itemsOnShelves -= 1;
         itemsOffShelves += 1;
-        points -= 2 * itemsOffShelves;
+        //points -= 2 * itemsOffShelves;
     }
 }
 
