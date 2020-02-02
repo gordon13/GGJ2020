@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DelayedGoToNextScene : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
-        
+        Debug.Log("delay go to next scene");
     }
 
-    // Update is called once per frame
+    float i = 0;
     void Update()
     {
+        i += Time.deltaTime;
+        if (i >= 5)
+        {
+            Debug.Log("load next scene");
+            SceneManager.LoadScene(2, LoadSceneMode.Single);
+        }
         
     }
 }

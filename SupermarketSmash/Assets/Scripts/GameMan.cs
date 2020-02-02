@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMan : MonoBehaviour
 {
@@ -54,6 +55,11 @@ public class GameMan : MonoBehaviour
         {
             points -= 1;
             nextTime += pointsTime;
+        }
+
+        if (points <= 0)
+        {
+            SceneManager.LoadScene(3, LoadSceneMode.Single);
         }
     }
 
