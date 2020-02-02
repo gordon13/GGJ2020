@@ -51,7 +51,7 @@ public class SceneControl : MonoBehaviour
             for (float i = time; i >= 0; i -= Time.deltaTime)
             {
                 // set color with i as alpha
-                img.color = new Color(0, 0, 0, i);
+                img.color = new Color(1,1, 1, i);
                 yield return null;
             }
         }
@@ -62,7 +62,7 @@ public class SceneControl : MonoBehaviour
             for (float i = 0; i <= time; i += Time.deltaTime)
             {
                 // set color with i as alpha
-                img.color = new Color(0, 0, 0, i);
+                img.color = new Color(1, 1, 1, i);
                 yield return null;
             }
         }
