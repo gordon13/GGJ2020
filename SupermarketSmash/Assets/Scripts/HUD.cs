@@ -14,16 +14,16 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameMan.instance;
-        onShelves = GameObject.Find("OnShelves/value");
-        offShelves = GameObject.Find("OffShelves/value");
-        points = GameObject.Find("Points/value");
+        //gameManager = GameMan.instance;
+        //onShelves = GameObject.Find("OnShelves/value");
+        //offShelves = GameObject.Find("OffShelves/value");
+        //points = GameObject.Find("Points/value");
     }
 
     void Update()
     {
-        onShelves.GetComponent<TextMeshProUGUI>().SetText(gameManager.itemsOnShelves.ToString());
-        offShelves.GetComponent<TextMeshProUGUI>().SetText(gameManager.itemsOffShelves.ToString());
-        points.GetComponent<TextMeshProUGUI>().SetText(gameManager.points.ToString());
+        //onShelves.GetComponent<TextMeshProUGUI>().SetText(gameManager.itemsOnShelves.ToString());
+        //offShelves.GetComponent<TextMeshProUGUI>().SetText(gameManager.itemsOffShelves.ToString());
+        //points.GetComponent<TextMeshProUGUI>().SetText(gameManager.points.ToString());
     }
 }

@@ -22,6 +22,11 @@ public class SceneControl : MonoBehaviour
         StartCoroutine(Quit());
     }
 
+    public void LoadMenu()
+    {
+        StartCoroutine(FadeImage(false, 2f, 0));
+    }
+
     public void StartLoading()
     {
         StartCoroutine(FadeImage(false, 2f, 1));
