@@ -17,14 +17,14 @@ public class GameMan : MonoBehaviour
     private Shelf[] shelves;
     float nextTime = 0;
 
-    void Awake()
+    /*void Awake()
     {
         if (instance == null)
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
-    }
+    }*/
 
     void Start()
     {
@@ -58,6 +58,7 @@ public class GameMan : MonoBehaviour
             nextTime += pointsTime;
             if (points <= 0)
             {
+                Cursor.lockState = CursorLockMode.None;
                 Debug.Log(points + " " + itemsOffShelves + " " + itemsOnShelves + " " + totalItems);
                 SceneManager.LoadScene(3, LoadSceneMode.Single);
             }
