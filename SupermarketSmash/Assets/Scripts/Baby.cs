@@ -54,7 +54,6 @@ public class Baby : MonoBehaviour
         }
         //Apply a force in the direction of that shelf (with a random vertical component to target different levels)
         _rigidbody.AddForce((target.transform.position - transform.position + new Vector3(0, Random.Range(1, 4), 0)) * force);
-        Debug.Log(target.transform.position);
         //_rigidbody.AddForce(new Vector3(0, force, 0));
     }
 
